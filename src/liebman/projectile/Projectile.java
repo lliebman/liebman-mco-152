@@ -25,6 +25,10 @@ public class Projectile {
         return velocity * sin(angle) * time + (EARTH_GRAVITY * (time * time));
     }
 
+    public double getTime(){
+        return time;
+    }
+
     public void increaseTime(double delta){
 
         time += delta;

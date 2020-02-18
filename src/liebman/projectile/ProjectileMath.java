@@ -25,7 +25,6 @@ public class ProjectileMath {
                 projectile.increaseTime(1);
             }
         }
-
     }
 }
 
