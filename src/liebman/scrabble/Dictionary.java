@@ -7,10 +7,11 @@ import java.util.Scanner;
 
 public class Dictionary {
 
-    private File file = new File("src/liebman/scrabble/dictionary.txt");
+    private File file;
     private Map<String, String> dictionary = new HashMap<String, String>();
 
-    public Dictionary() throws FileNotFoundException {
+    public Dictionary(String filePath) throws FileNotFoundException {
+        this.file = new File(filePath);
         Scanner scanner = new Scanner(file);
         while (scanner.hasNext()) {
             String nextWord = scanner.next();

@@ -11,7 +11,7 @@ public class DictionaryTest {
     @Test
     public void validateWordThatExists() throws IOException {
         //given
-        Dictionary dictionary = new Dictionary();
+        Dictionary dictionary = new Dictionary("src/liebman/scrabble/dictionary.txt");
 
         //when
         Boolean retVal = dictionary.validateWord("PUL");
@@ -23,7 +23,7 @@ public class DictionaryTest {
     @Test
     public void validateWordThatDoesNotExists() throws IOException {
         //given
-        Dictionary dictionary = new Dictionary();
+        Dictionary dictionary = new Dictionary("src/liebman/scrabble/dictionary.txt");
 
         //when
         Boolean retVal = dictionary.validateWord("ADJ");
@@ -35,7 +35,7 @@ public class DictionaryTest {
     @Test
     public void validateCaseInensitivity() throws IOException {
         //given
-        Dictionary dictionary = new Dictionary();
+        Dictionary dictionary = new Dictionary("src/liebman/scrabble/dictionary.txt");
 
         //when
         Boolean retVal = dictionary.validateWord("Aa");
