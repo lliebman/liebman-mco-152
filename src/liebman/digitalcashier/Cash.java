@@ -11,6 +11,9 @@ public class Cash {
     private int tenDollars;
     private int twentyDollars;
 
+    public Cash() {
+    }
+
     public Cash(int penny, int nickle, int dime, int quarter, int oneDollar,
                 int fiveDollars, int tenDollars, int twentyDollars) {
         this.penny = penny;
