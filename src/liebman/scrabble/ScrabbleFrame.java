@@ -8,13 +8,14 @@ public class ScrabbleFrame extends JFrame {
 
     private final JTextField wordField;
     private final JLabel answerLabel;
+    private Dictionary dictionary;
 
     public ScrabbleFrame() throws FileNotFoundException {
         setSize(400, 300);
         setTitle("Scrabble Frame");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        setLayout(new FlowLayout());
+        setLayout(new FlowLayout());//box layout y-axis
 
         wordField = new JTextField();
         wordField.setPreferredSize(new Dimension(160, 30));
@@ -23,21 +24,24 @@ public class ScrabbleFrame extends JFrame {
         checkButton.addActionListener(actionEvent -> checkWord());
 
         answerLabel = new JLabel();
+        answerLabel.setOpaque(true);
         answerLabel.setPreferredSize(new Dimension(100, 40));
         add(wordField);
         add(checkButton);
         add(answerLabel);
+
+        try {
+            dictionary = new Dictionary("src/liebman/scrabble/dictionary.txt");
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
     public void checkWord(){
-        try{
-            Dictionary dictionary = new Dictionary("src/liebman/scrabble/dictionary.txt");
-            boolean isInDictionary = dictionary.validateWord(wordField.getText());
-            answerLabel.setText(String.valueOf(isInDictionary));
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
+        boolean isInDictionary = dictionary.validateWord(wordField.getText());
+        answerLabel.setBackground(isInDictionary ? Color.GREEN : Color.RED);
+        answerLabel.setText(String.valueOf(isInDictionary));
     }
 
     public static void main(String[] args) throws FileNotFoundException {
