@@ -21,8 +21,7 @@ public class Dictionary {
     }
 
     public boolean validateWord(String input){
-        boolean v = dictionary.containsKey(input.toUpperCase());
-        return v;
+        return dictionary.containsKey(input.toUpperCase());
     }
 
     @Override

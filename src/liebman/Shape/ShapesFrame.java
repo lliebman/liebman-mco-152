@@ -29,6 +29,8 @@ public class ShapesFrame extends JFrame {
         fishButton = new JButton("Fish");
         flamingoButton = new JButton("Flamingo");
 
+      //  ImageIcon thisbutton = new ImageIcon("this.jpg");
+
         leftPanel.add(houseButton);
         leftPanel.add(shoeButton);
         leftPanel.add(fishButton);

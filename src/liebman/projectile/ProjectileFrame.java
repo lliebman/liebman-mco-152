@@ -49,6 +49,7 @@ public class ProjectileFrame extends JFrame {
     }
 
         private void calcVelocity(){
+            projectileCoordinates.setText("");
             projectile = new Projectile(Double.valueOf(angle.getText()), Double.valueOf(velocity.getText()));
             for (int i = 0; i<30; i++) {
                 projectile.increaseTime(1);

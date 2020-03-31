@@ -6,6 +6,25 @@ import java.awt.*;
 public class ShapeComponent extends JComponent {
 
     private String shape;
+    private int rotation;
+
+
+    public ShapeComponent(){
+        Thread thread = new Thread() {
+            public void run() {
+                    super.run();
+                    while (true) {
+                        repaint();
+                        try {
+                            Thread.sleep(30);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+            }
+        };
+        thread.start();
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -17,6 +36,9 @@ public class ShapeComponent extends JComponent {
         int centerY = height / 2;
 
         g.translate(centerX, centerY);
+        ((Graphics2D)g).rotate(Math.toRadians((rotation)));
+        rotation++;
+
 
         if (shape.equals("house")) {
             drawHouse(g, centerX, centerY);

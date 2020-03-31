@@ -29,7 +29,7 @@ public class ProjectileTest {
         double y = projectile.getY();
 
         //then
-        assertEquals(573.5568, y, 0.0001);
+        assertEquals(83.5569, y, 0.0001);
     }
 
     @Test
